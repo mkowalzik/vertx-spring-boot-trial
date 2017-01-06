@@ -12,6 +12,7 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
@@ -27,8 +28,11 @@ repositories {
 
 
 dependencies {
+    ext {
+        vertxVersion = '3.3.3'
+    }
 	compile('org.springframework.boot:spring-boot-starter-websocket')
-	compile 'io.vertx:vertx-core:3.3.3'
-	compile 'io.vertx:vertx-hazelcast:3.3.3'
+	compile "io.vertx:vertx-core:$vertxVersion"
+	compile "io.vertx:vertx-hazelcast:$vertxVersion"
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
